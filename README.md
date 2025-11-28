@@ -168,11 +168,11 @@ nginx/default.conf
 The following screenshots are included as part of the assignment:
 
 Screenshot	File
-Application Home UI	images/home.png
-Add Tutorial Page	images/add.png
-Added Confirmation	images/added.png
-Docker Images Built	images/imagesbuild.png
-Running Containers	images/images.png
+![Home UI](images/home.png)
+![Add Tutorial](images/add.png)
+![Added Tutorial](images/added.png)
+![Docker Images](images/images.png)
+![Docker Build Output](images/imagesbuild.png)
 
 
 ---
