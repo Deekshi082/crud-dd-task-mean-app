@@ -1,27 +1,207 @@
-In this DevOps task, you need to build and deploy a full-stack CRUD application using the MEAN stack (MongoDB, Express, Angular 15, and Node.js). The backend will be developed with Node.js and Express to provide REST APIs, connecting to a MongoDB database. The frontend will be an Angular application utilizing HTTPClient for communication.  
 
-The application will manage a collection of tutorials, where each tutorial includes an ID, title, description, and published status. Users will be able to create, retrieve, update, and delete tutorials. Additionally, a search box will allow users to find tutorials by title.
+# CRUD-DD Task – MEAN Application
 
-## Project setup
+This repository contains the full-stack MEAN application (MongoDB, Express, Angular, Node.js) deployed using **Docker** and **Docker Compose** on an Ubuntu server.
 
-### Node.js Server
+This documentation explains **exactly the steps we performed**, so anyone can deploy the project in the same way.
 
-cd backend
+---
 
-npm install
+# 📁 Project Structure
 
-You can update the MongoDB credentials by modifying the `db.config.js` file located in `app/config/`.
+```
+crud-dd-task-mean-app/
+│
+├── backend/                 # Node.js Express API
+│├── Dockerfile
+│
+├── frontend/                # Angular application
+│├── Dockerfile
+│
+├── nginx/
+│├── default.conf            # Nginx reverse proxy configuration
+│
+└── docker-compose.yml       # Multi-container setup
+```
 
-Run `node server.js`
+---
 
-### Angular Client
+# 🐳 Technologies Used
 
-cd frontend
+* Angular (Frontend)
+* Node.js + Express (Backend)
+* MongoDB (Database)
+* Docker
+* Docker Compose
+* Nginx (Reverse Proxy)
+* Ubuntu 24.04 (AWS EC2 VM)
 
-npm install
+---
 
-Run `ng serve --port 8081`
+# 🚀 **Setup on Ubuntu Server (We Actually Did This)**
 
-You can modify the `src/app/services/tutorial.service.ts` file to adjust how the frontend interacts with the backend.
+### Update system
 
-Navigate to `http://localhost:8081/`
+```
+sudo apt update
+```
+
+### Install Docker
+
+```
+sudo apt install docker.io -y
+```
+
+### Install Docker Compose
+
+```
+sudo apt install docker-compose -y
+```
+
+### Verify installations
+
+```
+docker --version
+docker-compose --version
+```
+
+---
+
+# 🚀 **Upload Project to Server**
+
+We uploaded the entire project folder to:
+
+```
+/home/ubuntu/project
+```
+
+Verify:
+
+```
+cd ~/project
+ls
+```
+
+Expected output:
+
+```
+backend  frontend  nginx  docker-compose.yml
+```
+
+---
+
+# 🚀 **Start Application Using Docker Compose**
+
+From inside project directory:
+
+```
+cd ~/project
+docker-compose up --build -d
+```
+
+This command automatically:
+
+* Builds backend image
+* Builds frontend image
+* Starts MongoDB container
+* Starts backend service
+* Starts Nginx serving Angular
+* Links containers together
+
+
+---
+
+# 🧪 **Checking Container Status**
+
+```
+docker ps
+```
+
+Expected to see:
+
+```
+frontend
+backend
+mongo
+```
+
+Accessible UI should load at:
+
+```
+http://<your-ec2-ip>
+```
+
+---
+
+# 🔄 **Redeploy After Code Update**
+
+If new code is pushed or updated:
+
+```
+docker-compose down
+docker-compose up --build -d
+```
+
+This rebuilds and restarts all services.
+
+---
+
+# 🔥 **Nginx Reverse Proxy (Used in Deployment)**
+
+Nginx was used to:
+
+* Serve Angular build files
+* Forward `/api/` requests to backend
+* Enable app access over port 80 only
+
+The configuration file is located in:
+
+```
+nginx/default.conf
+```
+
+---
+
+# 📷 **Screenshots to Include in Submission (You Will Upload)**
+
+
+The following screenshots are included as part of the assignment:
+
+Screenshot	File
+Application Home UI	images/home.png
+Add Tutorial Page	images/add.png
+Added Confirmation	images/added.png
+Docker Images Built	images/imagesbuild.png
+Running Containers	images/images.png
+
+
+---
+
+# 📌 **What This Repository Contains**
+
+This repo includes:
+
+* Complete Angular frontend
+* Complete Node.js backend
+* Dockerfile for backend
+* Dockerfile for frontend
+* Nginx reverse proxy configuration
+* docker-compose.yml
+* README documentation
+
+---
+
+# 🎯 Summary
+
+This project has been fully:
+
+✔ Containerized
+✔ Tested locally
+✔ Uploaded to Ubuntu
+✔ Deployed with Docker Compose
+✔ Running via Nginx reverse proxy
+✔ Accessible via single port (80)
+
+This README includes the **exact steps we actually performed**, nothing extra and nothing missing.
+
+---
