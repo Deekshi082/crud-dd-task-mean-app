@@ -38,7 +38,7 @@ crud-dd-task-mean-app/
 
 ---
 
-# 🚀 **Setup on Ubuntu Server (We Actually Did This)**
+# 🚀 **Setup on Ubuntu Server**
 
 ### Update system
 
@@ -69,7 +69,7 @@ docker-compose --version
 
 # 🚀 **Upload Project to Server**
 
-We uploaded the entire project folder to:
+uploaded the entire project folder to:
 
 ```
 /home/ubuntu/project
@@ -146,7 +146,7 @@ This rebuilds and restarts all services.
 
 ---
 
-# 🔥 **Nginx Reverse Proxy (Used in Deployment)**
+# 🔥 **Nginx Reverse Proxy**
 
 Nginx was used to:
 
@@ -162,7 +162,7 @@ nginx/default.conf
 
 ---
 
-# 📷 **Screenshots to Include in Submission (You Will Upload)**
+# 📷 **Screenshots**
 
 
 The following screenshots are included as part of the assignment:
@@ -202,6 +202,6 @@ This project has been fully:
 ✔ Running via Nginx reverse proxy
 ✔ Accessible via single port (80)
 
-This README includes the **exact steps we actually performed**, nothing extra and nothing missing.
+
 
 ---
