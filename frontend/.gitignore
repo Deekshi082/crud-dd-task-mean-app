@@ -1,0 +1,25 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log
+ 
+
+# Angular / build artifacts
+dist/
+.angular/
+.tmp/
+/.idea/
+/.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# credentials
+*.pem
+.env
+.env.local
+*.key
+
+# Docker
+docker-compose.override.yml
